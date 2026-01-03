@@ -31,6 +31,16 @@ app.get("/", (req, res) => {
   res.send("Hello!");
 });
 
+app.use(
+  cors({
+    origin: [
+      "https://food-delivery-app-0.onrender.com",
+      "https://food-delivery-app-2-k996.onrender.com",
+    ],
+    credentials: true,
+  })
+);
+
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err && err.stack ? err.stack : err);
   if (res.headersSent) return next(err);
