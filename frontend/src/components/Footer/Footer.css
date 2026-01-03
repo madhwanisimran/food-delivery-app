@@ -1,0 +1,177 @@
+.footer-section {
+  background-color: rgb(240, 240, 245);
+  padding: 2rem 3.5%; /* reduce side padding to avoid overflow on small screens */
+  font-family: "Inter", sans-serif;
+  color: #3d3d3d;
+  border-top: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden; /* defensively prevent horizontal scrolling */
+}
+
+/* top section */
+.footer-top {
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 1rem;
+}
+
+.footer-logo-img {
+  border-radius: 8px;
+  max-width: 200px; /* limit default logo width to prevent wide column */
+  width: 100%;
+}
+.footer-logo .copyright {
+  position: relative;
+  color: #333;
+  font-size: 15px;
+  left: 10px;
+}
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 6px;
+}
+
+.footer-links a {
+  color: #3d3d3d;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ff6600;
+}
+
+.footer-section h6 {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #000;
+}
+.social-links {
+  position: relative;
+  left: 550px;
+}
+.social-icons a {
+  color: #3d3d3d;
+  font-size: 20px;
+  transition: color 0.2s ease;
+  position: relative;
+  left: 550px;
+}
+.social-icons a:hover {
+  color: #ff6600;
+}
+
+/* place social icons centered below Contact and Legal on wide screens */
+.social-col {
+  display: block;
+}
+
+@media (min-width: 992px) {
+  /* make social column take full width and sit below the other columns */
+  .social-col {
+    width: 100%;
+    order: 99; /* push to bottom of the row */
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+/* ensure the footer row wraps and social-col can drop below Contact and Legal */
+.footer-top .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* bottom app store row */
+.footer-bottom {
+  background-color: rgb(240, 240, 245);
+  border-top: 3px solid #cfcfcf; /* darker horizontal rule */
+  padding: 1rem 0;
+}
+
+.download-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.download-text {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+}
+
+.download-btns img {
+  height: 68px;
+  display: inline-block;
+  max-width: 190px;
+  width: auto;
+}
+.download-btns img:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.download-btns {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.copyright {
+  font-size: 13px;
+  color: #666;
+}
+
+@media (max-width: 992px) {
+  .footer-top .row > [class*="col-"] {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  .footer-section h6 {
+    font-size: 14px;
+  }
+
+  .footer-logo-img {
+    max-width: 140px;
+  }
+  .social-links {
+    position: relative;
+    left: 350px;
+  }
+  .social-icons a {
+    color: #3d3d3d;
+    font-size: 20px;
+    transition: color 0.2s ease;
+    position: relative;
+    left: 350px;
+  }
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .download-row {
+    flex-direction: column;
+  }
+  .download-btns img {
+    height: 56px;
+    max-width: 48%;
+  }
+}

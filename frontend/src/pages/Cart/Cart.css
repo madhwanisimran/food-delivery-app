@@ -1,0 +1,21 @@
+.cart-page h3 {
+  font-weight: 750;
+}
+.cart-item img {
+  border-radius: 10px;
+}
+.cart-item .form-control {
+  display: inline-block;
+}
+button {
+  cursor: pointer;
+  background-color: tomato;
+}
+@media (max-width: 576px) {
+  .cart-item .text-sm-end {
+    text-align: left !important;
+  }
+  .cart-item .form-control {
+    width: 60px !important;
+  }
+}

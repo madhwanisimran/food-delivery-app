@@ -1,0 +1,273 @@
+.placeorder {
+  padding: 50px 20px;
+}
+
+.placeorder-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.placeorder-left,
+.placeorder-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.placeorder-left p.title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.placeorder-left input {
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+.placeorder-left input:focus {
+  outline: none;
+  border-color: #ff6b6b;
+  box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+}
+
+.multi-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.multi-fields input {
+  margin-bottom: 0;
+}
+
+.cartitems {
+  background-color: #f5f5f5;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cartitems h3 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.cartitems-total-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 15px;
+  color: #666;
+}
+
+.cartitems-total-details p {
+  margin: 0;
+}
+
+.cartitems-total-details b {
+  font-weight: 600;
+  color: #333;
+}
+
+.cartitems hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.cartitems button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cartitems button:hover {
+  background-color: #ff5252;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.cartitems button:active {
+  transform: scale(0.98);
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.payment-options button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.payment-options button:hover {
+  background-color: #333;
+  color: white;
+  transform: translateX(2px);
+}
+
+.modal-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-title {
+  font-weight: 600;
+  color: #333;
+}
+
+.modal-body {
+  padding: 25px;
+}
+
+.modal-footer {
+  background-color: #f8f8f8;
+  border-top: 1px solid #ddd;
+}
+
+.modal-footer button {
+  border-radius: 4px;
+  font-weight: 600;
+  padding: 8px 20px;
+}
+
+.modal-footer button.btn-secondary {
+  background-color: #999;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.modal-footer button.btn-secondary:hover {
+  background-color: #777;
+}
+
+.modal-footer button.btn-danger {
+  background-color: #ff6b6b;
+  transition: all 0.3s ease;
+}
+
+.modal-footer button.btn-danger:hover {
+  background-color: #ff5252;
+}
+
+.modal-body .form-group {
+  margin-bottom: 15px;
+}
+
+.modal-body .form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.modal-body .form-control {
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.modal-body .form-control:focus {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .placeorder-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .multi-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .placeorder {
+    padding: 30px 15px;
+  }
+
+  .placeorder-left input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .cartitems {
+    padding: 20px;
+  }
+
+  .cartitems button {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .modal-body {
+    padding: 15px;
+  }
+
+  .payment-options button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .placeorder {
+    padding: 20px 10px;
+  }
+
+  .placeorder-main {
+    gap: 20px;
+  }
+
+  .placeorder-left p.title {
+    font-size: 16px;
+  }
+
+  .placeorder-left input {
+    padding: 8px 10px;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .multi-fields {
+    gap: 8px;
+  }
+
+  .cartitems h3 {
+    font-size: 18px;
+  }
+
+  .cartitems-total-details {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+
+  .cartitems button {
+    margin-top: 15px;
+    padding: 8px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,93 @@
+.orders-page .order-id {
+  font-weight: 500;
+}
+.table-clean th,
+.table-clean td {
+  vertical-align: middle;
+  color: black;
+}
+.table-clean thead th {
+  background: #f8f9fa;
+}
+.table-row {
+  cursor: pointer;
+  background-color: white;
+}
+.table-clean tbody tr:hover {
+  background: white;
+}
+@media (max-width: 767px) {
+  .table-clean td {
+    font-size: 13px;
+  }
+}
+.table-responsive {
+  width: 100%;
+}
+.table-clean {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 300px;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .table-clean th,
+  .table-clean td {
+    padding: 8px 6px;
+    font-size: 14px;
+  }
+  .table-clean {
+    min-width: 520px;
+  }
+}
+
+/* Mobile: provide both a horizontal-scroll fallback and a stacked layout when data-labels exist */
+@media (max-width: 767px) {
+  .table-responsive {
+    overflow: visible;
+  }
+  .table-clean {
+    min-width: 100%;
+  }
+  .table-clean th,
+  .table-clean td {
+    padding: 10px 8px;
+    font-size: 13px;
+    white-space: normal;
+  }
+
+  /* Optional stacked layout: will work if table cells include a `data-label` attribute in the HTML */
+  .table-clean thead {
+    display: none;
+  }
+  .table-clean,
+  .table-clean tbody,
+  .table-clean tr,
+  .table-clean td {
+    display: block;
+    width: 100%;
+  }
+  .table-clean tr {
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee;
+  }
+  .table-clean td {
+    text-align: left;
+    padding-left: 50%;
+    position: relative;
+  }
+  .table-clean td:before {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+    white-space: nowrap;
+    font-weight: 600;
+    content: attr(data-label);
+  }
+}
+ul.mb-0 {
+  margin-bottom: 0;
+}

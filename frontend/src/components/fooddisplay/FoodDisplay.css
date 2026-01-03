@@ -1,0 +1,79 @@
+h4 {
+  font-weight: bolder;
+  font-size: 1.5em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.container-card:hover {
+  transform: scale(1.07);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.food-card-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.food-restaurant {
+  font-weight: 600;
+  color: #6c757d;
+}
+
+.food-price {
+  font-weight: 700;
+  color: #0f9d58;
+}
+
+.cart-count {
+  color: #0f9d58;
+  font-weight: 800;
+  min-width: 36px;
+  text-align: center;
+}
+button .add {
+  color: #0f9d58;
+  border: #0f9d58;
+  background-color: white;
+}
+
+.category-divider {
+  border: none;
+  border-top: 2px solid rgb(62, 62, 62);
+  margin: 48px auto 8px;
+  width: 96%;
+}
+
+@media (max-width: 768px) {
+  .food-card-title {
+    font-size: 0.95rem;
+  }
+  .food-price {
+    font-size: 0.95rem;
+  }
+  .cart-count {
+    min-width: 28px;
+    font-size: 0.95rem;
+  }
+  .card img,
+  .card .card-img-top,
+  .card .card-img {
+    height: 140px !important;
+    object-fit: cover;
+  }
+  .card-body {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-card-title {
+    font-size: 0.9rem;
+  }
+  .hero-text-box h1 {
+    font-size: 22px;
+  }
+  .card img,
+  .card .card-img-top,
+  .card .card-img {
+    height: 120px !important;
+  }
+}

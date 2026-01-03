@@ -1,0 +1,10 @@
+# Environment variables (global)
+.env
+
+# OS files
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

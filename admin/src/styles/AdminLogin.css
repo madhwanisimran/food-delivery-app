@@ -1,0 +1,44 @@
+.admin-login-page {
+  position: relative;
+  height: 100%;
+}
+
+.admin-login-card {
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  width: 350px;
+  height: 250px;
+  max-width: 360px;
+  padding: 1.25rem;
+  border-radius: 8px;
+  background: #d4cfcf;
+  box-shadow: 0 6px 16px rgba(22, 27, 40, 0.08);
+}
+
+.admin-login-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  gap: 5px;
+  margin-bottom: 0.75rem;
+}
+.admin-login-card input {
+  gap: 3px;
+  margin-bottom: 0.75rem;
+}
+
+.admin-login-card button {
+  background-color: rgb(39, 165, 39);
+  color: white;
+  margin-top: 0.5rem;
+}
+.admin-login-card button:hover {
+  background-color: rgb(72, 184, 72);
+}
+
+@media (max-width: 480px) {
+  .admin-login-card {
+    padding: 1rem;
+  }
+}
