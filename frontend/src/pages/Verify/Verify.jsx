@@ -28,7 +28,7 @@ const Verify = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          `http://localhost:4000/api/order/${orderId}`,
+          `https://food-delivery-app-dj34.onrender.com/api/order/${orderId}`,
           {
             method: "GET",
             headers: {

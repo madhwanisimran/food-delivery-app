@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:4000/api/food";
+const API_BASE = "https://food-delivery-app-dj34.onrender.com/api/food";
 
 const buildImageUrl = (filename) => {
   if (!filename) return null;
-  return `http://localhost:4000/uploads/${filename}`;
+  return `https://food-delivery-app-dj34.onrender.com/uploads/${filename}`;
 };
 
 const foodService = {

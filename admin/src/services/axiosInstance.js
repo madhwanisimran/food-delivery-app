@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create axios instance with base URL
 const instance = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: "https://food-delivery-app-dj34.onrender.com/api",
   timeout: 15000,
 });
 

@@ -11,7 +11,7 @@ import "./App.css";
 import "./index.css";
 import AdminLogin from "./pages/AdminLogin.jsx";
 
-export const API_URL = "http://localhost:4000/api";
+export const API_URL = "https://food-delivery-app-dj34.onrender.com/api";
 
 const App = () => {
   return (
