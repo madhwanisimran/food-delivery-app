@@ -96,9 +96,37 @@ const StoreContextProvider = (props) => {
         toast.info("Please sign in to modify your cart");
         return;
       }
-      await fetchCart();
+      try {
+        const current = cart[id] || 0;
+        if (q === current) return;
+
+        if (q > current) {
+          const times = q - current;
+          for (let i = 0; i < times; i++) {
+            const res = await cartService.addToCart(id);
+            if (!res.success) {
+              toast.error(res.message || "Failed to add to cart");
+              break;
+            }
+          }
+        } else {
+          const times = current - q;
+          for (let i = 0; i < times; i++) {
+            const res = await cartService.removeFromCart(id);
+            if (!res.success) {
+              toast.error(res.message || "Failed to remove from cart");
+              break;
+            }
+          }
+        }
+
+        await fetchCart();
+      } catch (error) {
+        console.error("setItemQty error", error);
+        toast.error("Error updating cart");
+      }
     },
-    [fetchCart]
+    [fetchCart, cart]
   );
 
   const clearItem = useCallback(
