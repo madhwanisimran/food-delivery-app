@@ -83,7 +83,7 @@ export default function CartPage() {
                 <ListGroup.Item key={it.id} className="cart-item">
                   <Row className="align-items-center">
                     <Col xs={3} sm={2} className="pe-0">
-                      <Image src={it.image} rounded fluid />
+                      <Image src={it.image} rounded fluid loading="lazy" />
                     </Col>
                     <Col xs={9} sm={6}>
                       <div className="fw-bold">{it.name}</div>

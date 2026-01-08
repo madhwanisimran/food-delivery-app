@@ -4,6 +4,9 @@ const API_BASE = "https://food-delivery-app-dj34.onrender.com/api/food";
 
 const buildImageUrl = (filename) => {
   if (!filename) return null;
+  // if backend already returns a full URL (Cloudinary), use it as-is
+  if (String(filename).startsWith("http")) return filename;
+  // fallback to legacy uploads path
   return `https://food-delivery-app-dj34.onrender.com/uploads/${filename}`;
 };
 

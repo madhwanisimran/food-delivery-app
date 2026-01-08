@@ -23,8 +23,8 @@ connectDB();
 
 // api routes
 app.use("/api/food", foodRouter);
-const uploadsPath = path.resolve(process.cwd(), "uploads");
-app.use("/uploads", express.static(uploadsPath));
+// const uploadsPath = path.resolve(process.cwd(), "uploads");
+// app.use("/uploads", express.static(uploadsPath));
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
