@@ -67,6 +67,7 @@ const FoodDisplay = ({ category = "All" }) => {
                   <Card.Img
                     src={item.image}
                     alt={item.name}
+                    loading="lazy"
                     style={{ height: 180, objectFit: "cover" }}
                   />
                   <Badge
