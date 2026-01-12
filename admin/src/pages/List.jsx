@@ -6,7 +6,7 @@ import Table from "react-bootstrap/Table";
 import { X } from "react-bootstrap-icons";
 import "../styles/List.css";
 
-const List = ({ url }) => {
+const List = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +22,7 @@ const List = ({ url }) => {
     } finally {
       setLoading(false);
     }
-  }, [url]);
+  }, []);
 
   useEffect(() => {
     fetchItems();
@@ -62,9 +62,7 @@ const List = ({ url }) => {
           <tbody>
             {items.map((item) => {
               const id = item._id || item.id;
-              const imgSrc = item.image
-                ? `${url.replace("/api", "")}/uploads/${item.image}`
-                : item.img || null;
+              const imgSrc = item.image || item.img || null;
               return (
                 <tr key={id}>
                   <td style={{ width: 140 }}>
