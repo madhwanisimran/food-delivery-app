@@ -39,6 +39,7 @@ app.use(
       "https://food-delivery-app-0.onrender.com",
       "https://food-delivery-app-2-k996.onrender.com",
     ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
