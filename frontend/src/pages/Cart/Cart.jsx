@@ -44,14 +44,14 @@ export default function CartPage() {
 
   const deliveryFee = useMemo(
     () => (itemsSubtotal > 0 ? 40 : 0),
-    [itemsSubtotal]
+    [itemsSubtotal],
   );
 
   const taxes = useMemo(() => itemsSubtotal * 0.05, [itemsSubtotal]);
 
   const total = useMemo(
     () => itemsSubtotal + deliveryFee + taxes - discount,
-    [itemsSubtotal, deliveryFee, taxes, discount]
+    [itemsSubtotal, deliveryFee, taxes, discount],
   );
 
   const setQty = (id, qty) => {
@@ -88,6 +88,7 @@ export default function CartPage() {
                     <Col xs={9} sm={6}>
                       <div className="fw-bold">{it.name}</div>
                       <div className="text-muted small">{it.restaurant}</div>
+                      <div className="text-muted small">{it.rating} ⭐</div>
                       <div className="mt-2 text-success fw-bold">
                         {formatCurrency(it.price)}
                       </div>

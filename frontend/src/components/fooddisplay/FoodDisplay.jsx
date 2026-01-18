@@ -11,14 +11,14 @@ const FoodDisplay = ({ category = "All" }) => {
   const foodItems = useMemo(
     () =>
       context && Array.isArray(context.foodItems) ? context.foodItems : [],
-    [context]
+    [context],
   );
 
   const filteredItems = useMemo(() => {
     if (!category || category === "All") return foodItems;
     return foodItems.filter(
       (it) =>
-        String(it.category).toLowerCase() === String(category).toLowerCase()
+        String(it.category).toLowerCase() === String(category).toLowerCase(),
     );
   }, [foodItems, category]);
 
@@ -39,12 +39,26 @@ const FoodDisplay = ({ category = "All" }) => {
     );
   }
 
-  const { cart = {}, addToCart, removeFromCart } = context;
+  const {
+    cart = {},
+    addToCart,
+    removeFromCart,
+    refreshFoods,
+    loadingFoods,
+  } = context;
 
   return (
     <Container className="py-5">
       <div className="d-flex align-items-center justify-content-between mb-4">
         <h4>Top Dishes Near You</h4>
+        <Button
+          variant="outline-primary"
+          size="sm"
+          onClick={refreshFoods}
+          disabled={loadingFoods}
+        >
+          {loadingFoods ? "Refreshing..." : "🔄 Refresh"}
+        </Button>
       </div>
 
       {filteredItems.length === 0 ? (
