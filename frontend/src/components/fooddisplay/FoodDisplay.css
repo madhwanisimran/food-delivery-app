@@ -10,18 +10,89 @@ h4 {
 }
 .food-card-title {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
 .food-restaurant {
   font-weight: 600;
-  color: #6c757d;
-  margin-bottom: 2px;
+  color: #495057;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.food-description {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
 }
 
 .food-price {
   font-weight: 700;
   color: #0f9d58;
+  font-size: 1.1rem;
+}
+
+.food-rating {
+  color: #ffc107;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Search Results Styles */
+.search-item-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.search-restaurant {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.search-rating {
+  color: #ffc107;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.search-description {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.search-price {
+  font-weight: 700;
+  color: #0f9d58;
+  font-size: 1.1rem;
+}
+
+/* Cart Styles */
+.cart-item-name {
+  font-size: 1rem;
+  color: #333;
+}
+
+.cart-restaurant {
+  font-size: 0.9rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.cart-rating {
+  font-size: 0.85rem;
+  color: #ffc107;
+  font-weight: 600;
+}
+
+.cart-price {
+  font-size: 1rem;
 }
 
 .cart-count {
@@ -45,15 +116,52 @@ button .add {
 
 @media (max-width: 768px) {
   .food-card-title {
-    font-size: 0.95rem;
+    font-size: 1rem;
+  }
+  .food-restaurant {
+    font-size: 0.9rem;
+  }
+  .food-description {
+    font-size: 0.85rem;
   }
   .food-price {
+    font-size: 1rem;
+  }
+  .food-rating {
+    font-size: 0.85rem;
+  }
+
+  /* Search Results Mobile Styles */
+  .search-item-title {
+    font-size: 1rem;
+  }
+  .search-restaurant {
+    font-size: 0.9rem;
+  }
+  .search-rating {
+    font-size: 0.85rem;
+  }
+  .search-description {
+    font-size: 0.85rem;
+  }
+  .search-price {
+    font-size: 1rem;
+  }
+
+  /* Cart Mobile Styles */
+  .cart-item-name {
     font-size: 0.95rem;
   }
-  .cart-count {
-    min-width: 28px;
+  .cart-restaurant {
+    font-size: 0.85rem;
+  }
+  .cart-rating {
+    font-size: 0.8rem;
+  }
+  .cart-price {
     font-size: 0.95rem;
   }
+
   .card img,
   .card .card-img-top,
   .card .card-img {
@@ -67,14 +175,58 @@ button .add {
 
 @media (max-width: 480px) {
   .food-card-title {
+    font-size: 0.95rem;
+  }
+  .food-restaurant {
+    font-size: 0.85rem;
+  }
+  .food-description {
+    font-size: 0.8rem;
+  }
+  .food-price {
+    font-size: 0.95rem;
+  }
+  .food-rating {
+    font-size: 0.8rem;
+  }
+
+  /* Search Results Small Mobile Styles */
+  .search-item-title {
+    font-size: 0.95rem;
+  }
+  .search-restaurant {
+    font-size: 0.85rem;
+  }
+  .search-rating {
+    font-size: 0.8rem;
+  }
+  .search-description {
+    font-size: 0.8rem;
+  }
+  .search-price {
+    font-size: 0.95rem;
+  }
+
+  /* Cart Small Mobile Styles */
+  .cart-item-name {
     font-size: 0.9rem;
   }
-  .hero-text-box h1 {
-    font-size: 22px;
+  .cart-restaurant {
+    font-size: 0.8rem;
   }
+  .cart-rating {
+    font-size: 0.75rem;
+  }
+  .cart-price {
+    font-size: 0.9rem;
+  }
+
   .card img,
   .card .card-img-top,
   .card .card-img {
     height: 120px !important;
+  }
+  .card-body {
+    padding: 0.5rem;
   }
 }

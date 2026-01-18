@@ -86,12 +86,16 @@ export default function CartPage() {
                       <Image src={it.image} rounded fluid loading="lazy" />
                     </Col>
                     <Col xs={9} sm={6}>
-                      <div className="fw-bold">{it.name}</div>
-                      <div className="text-muted small">{it.restaurant}</div>
-                      <div className="text-warning small fw-bold">
-                        {it.rating} ⭐
+                      <div className="cart-item-name fw-bold mb-1">
+                        {it.name}
                       </div>
-                      <div className="mt-2 text-success fw-bold">
+                      <div className="cart-restaurant mb-1">
+                        <strong>Restaurant:</strong> {it.restaurant}
+                      </div>
+                      <div className="cart-rating mb-2">
+                        <strong>Rating:</strong> {it.rating} ⭐
+                      </div>
+                      <div className="cart-price text-success fw-bold">
                         {formatCurrency(it.price)}
                       </div>
                     </Col>

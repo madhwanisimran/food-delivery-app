@@ -93,33 +93,26 @@ const FoodDisplay = ({ category = "All" }) => {
                   </Badge>
                 </div>
                 <Card.Body className="d-flex flex-column">
-                  <div className="d-flex justify-content-between align-items-start mb-2">
-                    <div>
-                      <Card.Title className="mb-1 food-card-title">
-                        {item.name}
-                      </Card.Title>
-                      <div className="small food-restaurant">
-                        {item.restaurant}
-                      </div>
-                      <div className="small text-warning fw-bold">
-                        {item.rating} ⭐
-                      </div>
-                    </div>
-                    <div className="food-price">₹{item.price}</div>
+                  <Card.Title className="food-card-title mb-2">
+                    {item.name}
+                  </Card.Title>
+
+                  <div className="food-restaurant mb-2">
+                    <strong>Restaurant:</strong> {item.restaurant}
                   </div>
 
-                  <Card.Text
-                    className="text-muted small mb-3"
-                    style={{
-                      flexGrow: 1,
-                      display: "-webkit-box",
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {item.description}
+                  <Card.Text className="food-description mb-3">
+                    <strong>Description:</strong> {item.description}
                   </Card.Text>
+
+                  <div className="d-flex justify-content-between align-items-center mt-auto">
+                    <div className="food-price">
+                      <strong>₹{item.price}</strong>
+                    </div>
+                    <div className="food-rating">
+                      <strong>Rating: {item.rating} ⭐</strong>
+                    </div>
+                  </div>
 
                   <div className="d-flex gap-2 align-items-center">
                     {cart[item.id] ? (

@@ -57,31 +57,34 @@ export default function SearchResults() {
           <Col key={it.id}>
             <Card>
               <Card.Body>
-                <div className="d-flex justify-content-between">
-                  <div>
-                    <div className="fw-bold">{it.name}</div>
-                    <div className="small text-muted">{it.restaurant}</div>
-                    <div className="small text-warning fw-bold">
-                      {it.rating} ⭐
-                    </div>
-                    <div className="small text-muted mt-1">
-                      {it.description}
-                    </div>
+                <Card.Title className="search-item-title mb-2">
+                  {it.name}
+                </Card.Title>
+
+                <div className="search-restaurant mb-1">
+                  <strong>Restaurant:</strong> {it.restaurant}
+                </div>
+
+                <div className="search-rating mb-2">
+                  <strong>Rating:</strong> {it.rating} ⭐
+                </div>
+
+                <Card.Text className="search-description mb-3">
+                  <strong>Description:</strong> {it.description}
+                </Card.Text>
+
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="search-price">
+                    <strong>₹{Number(it.price).toFixed(2)}</strong>
                   </div>
-                  <div className="text-end">
-                    <div className="fw-bold">
-                      ₹{Number(it.price).toFixed(2)}
-                    </div>
-                    <Button
-                      size="sm"
-                      className="mt-2"
-                      variant="success"
-                      onClick={() => isLoggedIn && addToCart(it.id)}
-                      disabled={!isLoggedIn}
-                    >
-                      Add
-                    </Button>
-                  </div>
+                  <Button
+                    size="sm"
+                    variant="success"
+                    onClick={() => isLoggedIn && addToCart(it.id)}
+                    disabled={!isLoggedIn}
+                  >
+                    Add
+                  </Button>
                 </div>
               </Card.Body>
             </Card>
