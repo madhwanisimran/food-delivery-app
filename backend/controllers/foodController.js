@@ -93,12 +93,10 @@ const addFood = async (req, res) => {
         console.error("Failed to remove file from Cloudinary", e);
       }
     }
-    return res
-      .status(400)
-      .json({
-        success: false,
-        message: "Rating must be a number between 1 and 5",
-      });
+    return res.status(400).json({
+      success: false,
+      message: "Rating must be a number between 1 and 5",
+    });
   }
 
   const food = new foodModel({
@@ -137,7 +135,7 @@ const listFood = async (req, res) => {
   try {
     const foods = await foodModel
       .find({})
-      .select("name price image category")
+      .select("name description price image category restaurantName rating")
       .limit(20);
     return res.status(200).json({ success: true, foods });
   } catch (error) {

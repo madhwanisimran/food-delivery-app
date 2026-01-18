@@ -109,9 +109,6 @@ const FoodDisplay = ({ category = "All" }) => {
                     <div className="food-price">
                       <strong>₹{item.price}</strong>
                     </div>
-                    <div className="food-rating">
-                      <strong>Rating: {item.rating} ⭐</strong>
-                    </div>
                   </div>
 
                   <div className="d-flex gap-2 align-items-center">
