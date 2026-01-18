@@ -1,15 +1,58 @@
 import foodModel from "../models/foodModel.js";
 import cloudinary from "../config/cloudinary.js";
 
+//upload image buffer to cloudinary
+const uploadToCloudinary = (buffer) => {
+  return new Promise((resolve, reject) => {
+    cloudinary.uploader
+      .upload_stream({ folder: "food_delivery/foods" }, (error, result) => {
+        if (error) return reject(error);
+        resolve(result);
+      })
+      .end(buffer);
+  });
+};
+
 // add food item
 const addFood = async (req, res) => {
-  const file = req.file;
-  const image_url = file ? file.secure_url : null;
-  const image_public_id = file ? file.public_id : null;
+  let image_url = null;
+  let image_public_id = null;
 
-  const { name, description, price, category } = req.body || {};
+  const { name, description, price, category, image } = req.body;
+
+  // Upload image to Cloudinary
+  if (req.file) {
+    // From multipart/form-data
+    try {
+      const result = await uploadToCloudinary(req.file.buffer);
+      image_url = result.secure_url;
+      image_public_id = result.public_id;
+    } catch (error) {
+      console.error("Error uploading image to Cloudinary", error);
+      return res.status(500).json({
+        success: false,
+        message: "Failed to upload image",
+      });
+    }
+  } else if (image && typeof image === "string") {
+    // From JSON with base64
+    try {
+      const base64Data = image.replace(/^data:image\/[a-z]+;base64,/, "");
+      const buffer = Buffer.from(base64Data, "base64");
+      const result = await uploadToCloudinary(buffer);
+      image_url = result.secure_url;
+      image_public_id = result.public_id;
+    } catch (error) {
+      console.error("Error uploading image to Cloudinary", error);
+      return res.status(500).json({
+        success: false,
+        message: "Failed to upload image",
+      });
+    }
+  }
+
   if (!name || !description || !price || !category) {
-    if (file && image_public_id) {
+    if (image_public_id) {
       try {
         await cloudinary.uploader.destroy(image_public_id);
       } catch (e) {
@@ -27,7 +70,7 @@ const addFood = async (req, res) => {
 
   const priceNum = Number(price);
   if (Number.isNaN(priceNum) || priceNum < 0) {
-    if (file && image_public_id) {
+    if (image_public_id) {
       try {
         await cloudinary.uploader.destroy(image_public_id);
       } catch (e) {
@@ -55,7 +98,7 @@ const addFood = async (req, res) => {
       .json({ success: true, message: "Food item added", item: food });
   } catch (error) {
     console.error("Error saving food item", error);
-    if (file && image_public_id) {
+    if (image_public_id) {
       try {
         await cloudinary.uploader.destroy(image_public_id);
       } catch (e) {
@@ -97,7 +140,7 @@ const removeFood = async (req, res) => {
         .status(404)
         .json({ success: false, message: "Food item not found" });
 
-    // Delete image from Cloudinary if public_id exists
+    // Delete image from Cloudinary
     if (food.image_public_id) {
       try {
         await cloudinary.uploader.destroy(food.image_public_id);
