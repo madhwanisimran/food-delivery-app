@@ -61,7 +61,12 @@ export default function SearchResults() {
                   <div>
                     <div className="fw-bold">{it.name}</div>
                     <div className="small text-muted">{it.restaurant}</div>
-                    <div className="small text-muted">{it.rating} ⭐</div>
+                    <div className="small text-warning fw-bold">
+                      {it.rating} ⭐
+                    </div>
+                    <div className="small text-muted mt-1">
+                      {it.description}
+                    </div>
                   </div>
                   <div className="text-end">
                     <div className="fw-bold">

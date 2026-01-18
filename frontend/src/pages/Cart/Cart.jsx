@@ -88,7 +88,9 @@ export default function CartPage() {
                     <Col xs={9} sm={6}>
                       <div className="fw-bold">{it.name}</div>
                       <div className="text-muted small">{it.restaurant}</div>
-                      <div className="text-muted small">{it.rating} ⭐</div>
+                      <div className="text-warning small fw-bold">
+                        {it.rating} ⭐
+                      </div>
                       <div className="mt-2 text-success fw-bold">
                         {formatCurrency(it.price)}
                       </div>

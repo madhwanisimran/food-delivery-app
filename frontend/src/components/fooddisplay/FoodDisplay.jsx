@@ -101,11 +101,23 @@ const FoodDisplay = ({ category = "All" }) => {
                       <div className="small food-restaurant">
                         {item.restaurant}
                       </div>
+                      <div className="small text-warning fw-bold">
+                        {item.rating} ⭐
+                      </div>
                     </div>
                     <div className="food-price">₹{item.price}</div>
                   </div>
 
-                  <Card.Text className="small mb-3" style={{ flexGrow: 1 }}>
+                  <Card.Text
+                    className="text-muted small mb-3"
+                    style={{
+                      flexGrow: 1,
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
                     {item.description}
                   </Card.Text>
 
