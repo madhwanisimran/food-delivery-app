@@ -17,6 +17,15 @@
   width: max(43%, 300px);
 }
 
+.restaurant-rating {
+  display: flex;
+  gap: 20px;
+}
+.restaurant-name,
+.product-rating {
+  flex: 1;
+}
+
 .product-category-price {
   display: flex;
   gap: 20px;
@@ -90,5 +99,17 @@
   .upload-box {
     min-width: 160px;
     min-height: 120px;
+  }
+  .restaurant-rating {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .product-category-price {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .product-category,
+  .product-price {
+    max-width: none;
   }
 }

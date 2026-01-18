@@ -23,7 +23,7 @@ const foodService = {
           price: f.price,
           image: f.image ? buildImageUrl(f.image) : f.img || null,
           rating: f.rating || 4.5,
-          restaurant: f.restaurant || f.vendor || "",
+          restaurant: f.restaurantName || f.restaurant || f.vendor || "",
         }));
         return { success: true, foods };
       }

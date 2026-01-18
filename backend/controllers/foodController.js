@@ -18,7 +18,8 @@ const addFood = async (req, res) => {
   let image_url = null;
   let image_public_id = null;
 
-  const { name, description, price, category, image } = req.body;
+  const { name, description, price, category, restaurantName, rating, image } =
+    req.body;
 
   // Upload image to Cloudinary
   if (req.file) {
@@ -51,20 +52,21 @@ const addFood = async (req, res) => {
     }
   }
 
-  if (!name || !description || !price || !category) {
+  if (!name || !description || !price || !category || !restaurantName) {
     if (image_public_id) {
       try {
         await cloudinary.uploader.destroy(image_public_id);
       } catch (e) {
         console.error(
           "Failed to remove uploaded file from Cloudinary after validation error",
-          e
+          e,
         );
       }
     }
     return res.status(400).json({
       success: false,
-      message: "Missing required fields: name, description, price, category",
+      message:
+        "Missing required fields: name, description, price, category, restaurantName",
     });
   }
 
@@ -82,6 +84,23 @@ const addFood = async (req, res) => {
       .json({ success: false, message: "Price must be a non-negative number" });
   }
 
+  const ratingNum = rating ? Number(rating) : 4.5;
+  if (Number.isNaN(ratingNum) || ratingNum < 1 || ratingNum > 5) {
+    if (image_public_id) {
+      try {
+        await cloudinary.uploader.destroy(image_public_id);
+      } catch (e) {
+        console.error("Failed to remove file from Cloudinary", e);
+      }
+    }
+    return res
+      .status(400)
+      .json({
+        success: false,
+        message: "Rating must be a number between 1 and 5",
+      });
+  }
+
   const food = new foodModel({
     name: String(name).trim(),
     description: String(description).trim(),
@@ -89,6 +108,8 @@ const addFood = async (req, res) => {
     image: image_url,
     image_public_id: image_public_id,
     category: String(category).trim(),
+    restaurantName: String(restaurantName).trim(),
+    rating: ratingNum,
   });
 
   try {

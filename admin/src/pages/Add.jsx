@@ -17,6 +17,8 @@ const Add = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Biryani");
   const [price, setPrice] = useState("");
+  const [restaurantName, setRestaurantName] = useState("");
+  const [rating, setRating] = useState("");
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState("");
   const inputRef = useRef(null);
@@ -40,7 +42,12 @@ const Add = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!name.trim() || !description.trim() || price === "") {
+    if (
+      !name.trim() ||
+      !description.trim() ||
+      price === "" ||
+      !restaurantName.trim()
+    ) {
       toast.error("Please fill the required fields");
       return;
     }
@@ -50,6 +57,10 @@ const Add = () => {
     formData.append("description", description.trim());
     formData.append("category", category);
     formData.append("price", Number(price));
+    formData.append("restaurantName", restaurantName.trim());
+    if (rating) {
+      formData.append("rating", Number(rating));
+    }
     if (file) {
       formData.append("image", file);
     }
@@ -66,6 +77,8 @@ const Add = () => {
         setDescription("");
         setCategory("Biryani");
         setPrice("");
+        setRestaurantName("");
+        setRating("");
         handleRemoveImage();
       } else {
         toast.error("Failed to add product");
@@ -145,6 +158,30 @@ const Add = () => {
             required
           />
         </Form.Group>
+        <Row className="restaurant-rating mb-3">
+          <Col md={6} className="restaurant-name">
+            <Form.Label>Restaurant Name</Form.Label>
+            <Form.Control
+              value={restaurantName}
+              onChange={(e) => setRestaurantName(e.target.value)}
+              type="text"
+              placeholder="Enter restaurant name"
+              required
+            />
+          </Col>
+          <Col md={6} className="product-rating">
+            <Form.Label>Rating (1-5)</Form.Label>
+            <Form.Control
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+              type="number"
+              min="1"
+              max="5"
+              step="0.1"
+              placeholder="4.5"
+            />
+          </Col>
+        </Row>
         <Row className="product-category-price mb-3">
           <Col className="product-category" md={4}>
             <Form.Label>Product Category</Form.Label>
