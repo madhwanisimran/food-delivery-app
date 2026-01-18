@@ -98,17 +98,14 @@ const FoodDisplay = ({ category = "All" }) => {
                       <Card.Title className="mb-1 food-card-title">
                         {item.name}
                       </Card.Title>
-                      <div className="text-muted small food-restaurant">
+                      <div className="small food-restaurant">
                         {item.restaurant}
                       </div>
                     </div>
                     <div className="food-price">₹{item.price}</div>
                   </div>
 
-                  <Card.Text
-                    className="text-muted small mb-3"
-                    style={{ flexGrow: 1 }}
-                  >
+                  <Card.Text className="small mb-3" style={{ flexGrow: 1 }}>
                     {item.description}
                   </Card.Text>
 
